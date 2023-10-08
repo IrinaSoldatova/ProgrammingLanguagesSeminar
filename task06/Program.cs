@@ -15,11 +15,11 @@ int number = Convert.ToInt32(Console.ReadLine());
     int remain = number % 2;
     if (remain == 0)
     {
-        Console.WriteLine("Число " + number + " четное");
+        Console.WriteLine($"Число {number} четное");
     }
     else
     {
-        Console.WriteLine("Число " + number + " нечетное");
+        Console.WriteLine($"Число {number} нечетное");
     }
 
 }
