@@ -12,9 +12,8 @@ number = 7 -> Число 7 нечётное
 Console.Write("Введите число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-{
-    int remain = number % 2;
-    if (remain == 0)
+
+    if (number % 2 == 0)
     {
         Console.WriteLine($"Число {number} четное");
     }
@@ -23,4 +22,3 @@ int number = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine($"Число {number} нечетное");
     }
 
-}

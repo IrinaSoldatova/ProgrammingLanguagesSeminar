@@ -6,10 +6,14 @@
 782 -> 2
 918 -> 8
 */
+System.Console.WriteLine("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
 
-System.Console.WriteLine();
-
-int number = new Random().Next(100, 1000);
-
-System.Console.WriteLine($"Последней цифрой числа {number} является цифра {number%10}");
-System.Console.WriteLine();
+if (number > 99 && number < 1000)
+{
+    System.Console.WriteLine($"Последней цифрой числа {number} является цифра {number % 10}");
+}
+else
+{
+    System.Console.WriteLine("Введенное число не трёхзначное");
+}
