@@ -7,15 +7,18 @@
 */
 System.Console.WriteLine("Введите число: ");
 int number = Convert.ToInt32(Console.ReadLine());
+
+if (number < 100)
+{
+    System.Console.WriteLine("нет третьей цифры");
+    return;
+
+}
+
 while (number > 1000)
 {
     number = number / 10;
 }
-if (number > 99 && number < 1000)
-{
-    System.Console.WriteLine(number % 10);
-}
-else
-{
-    System.Console.WriteLine("no");
-}
+
+System.Console.WriteLine(number % 10);
+
