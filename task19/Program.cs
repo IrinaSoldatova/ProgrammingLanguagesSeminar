@@ -6,38 +6,63 @@
 23432 -> да
 12821 -> да
 */
-System.Console.Write("Введите пятизначное число: ");
-int number = Convert.ToInt32(Console.ReadLine());
 
-if (10000 > number || number > 99999)
+System.Console.Write("Введите пятизначное число: ");
+int userNumber = Convert.ToInt32(Console.ReadLine());
+
+if (10000 > userNumber || userNumber > 99999)
 {
-    System.Console.WriteLine("Введенное число не является пятизначным");
+    System.Console.WriteLine("Число не пятизначное");
     return;
 }
-for (int i = number; i < 10; i = i % 10)
+
+int number = userNumber;
+int reverse = 0;
+
+while (number > 0)
 {
-    i = i / 10;
+    int remain = number % 10;
+    reverse = reverse * 10 + remain;
+    number = number / 10;
 }
-System.Console.WriteLine();
+System.Console.WriteLine(reverse);
 
-
-
-
-/*
-int num1 = number % 10;
-int num2 = number / 10 % 10;
-int num3 = number / 100 % 10;
-int num4 = number / 1000 % 10;
-int num5 = number / 10000 % 10;
-int number2 = num1 * 10000 + num2 * 1000 + num3 * 100 + num4 * 10 + num5;
-System.Console.WriteLine(number2);
-if (number == number2)
+if(userNumber == reverse)
 {
-    System.Console.WriteLine("True");
+    System.Console.WriteLine("Чиcло является палиндромом");
+
 }
 else
 {
-    System.Console.WriteLine("False");
+    System.Console.WriteLine("Не является палиндромом");
 }
 
+
+/* Второй способ
+
+System.Console.Write("Введите пятизначное число: ");
+int userNumber = Convert.ToInt32(Console.ReadLine());
+
+if (10000 > userNumber || userNumber > 99999)
+{
+    System.Console.WriteLine("Число не пятизначное");
+    return;
+}
+
+int num1 = userNumber % 10;
+int num2 = userNumber / 10 % 10;
+int num3 = userNumber / 100 % 10;
+int num4 = userNumber / 1000 % 10;
+int num5 = userNumber / 10000 % 10;
+int number = num1 * 10000 + num2 * 1000 + num3 * 100 + num4 * 10 + num5;
+System.Console.WriteLine(number);
+if (userNumber == number)
+{
+    System.Console.WriteLine("Чиcло является палиндромом");
+}
+else
+{
+    System.Console.WriteLine("Не является палиндромом");
+}
 */
+
