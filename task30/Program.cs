@@ -3,7 +3,8 @@
 // нулями и единицами в случайном порядке.
 // [1,0,1,1,0,1,0,0]
 
-/*
+Console.Clear();
+
 void FillArray(int[] size)
 {
     for (int i = 0; i < size.Length; i++)
@@ -14,18 +15,23 @@ void FillArray(int[] size)
 
 void PrintArray(int[] arr)
 {
-    for (int j = 0; j < arr.Length; j++)
+    System.Console.Write("[");
+    for (int j = 0; j < arr.Length - 1; j++)
     {
-        System.Console.Write($"{arr[j]}, ");
+        System.Console.Write(arr[j]);
+        if (j < arr.Length - 1)
+            System.Console.Write(", ");
     }
+    System.Console.Write($"{arr[arr.Length - 1]}");
+    System.Console.Write("]");
 }
 
-int[] array = new int[9];
+int[] array = new int[8];
 
 FillArray(array);
 PrintArray(array);
-*/
 
+/* через int 
 using System;
 Console.Clear();
 
@@ -43,8 +49,13 @@ void PrintArray(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        System.Console.Write($"{arr[i]}, ");
+        System.Console.Write("[")
+        System.Console.Write(arr[i]);
+        if (i < arr.Length - 1)
+            System.Console.Write(", ");
     }
+    System.Console.Write("]");
 }
-int[] userArray = GetRandArray(9);
+int[] userArray = GetRandArray(8);
 PrintArray(userArray);
+*/
