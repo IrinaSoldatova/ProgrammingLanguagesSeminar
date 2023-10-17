@@ -16,6 +16,12 @@ int numberA = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Введите второе число ");
 int numberB = Convert.ToInt32(Console.ReadLine());
 
+if (numberB <= 0)
+{
+    System.Console.WriteLine("Ввели неверное значение");
+    return;
+}
+
 
 int Degree(int a, int b)
 {
