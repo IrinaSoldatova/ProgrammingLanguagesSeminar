@@ -25,8 +25,9 @@ void PrintArray(int[] arr)
     System.Console.Write($"{arr[arr.Length - 1]}");
     System.Console.Write("]");
 }
-
-int[] array = new int[8];
+System.Console.Write("Задайте размер массива: ");
+int userSize = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[userSize];
 
 FillArray(array);
 PrintArray(array);
@@ -56,6 +57,8 @@ void PrintArray(int[] arr)
     }
     System.Console.Write("]");
 }
-int[] userArray = GetRandArray(8);
+System.Console.Write("Задайте размер массива: ");
+int userSize = Convert.ToInt32(Console.ReadLine());
+int[] userArray = GetRandArray(userSize);
 PrintArray(userArray);
 */
