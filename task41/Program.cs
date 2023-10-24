@@ -42,5 +42,5 @@ void ResultNumber(int[] array)
 //System.Console.Write("Задайте размер массива: ");
 //int userSize = Convert.ToInt32(Console.ReadLine());
 int[] userArray = FillArray(5);
-PrintArray(userArray);
-ResultNumber(userArray);
+PrintArray(arr);
+ResultNumber(arr);
