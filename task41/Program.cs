@@ -39,8 +39,8 @@ void ResultNumber(int[] array)
     System.Console.WriteLine(result);
 }
 
-//System.Console.Write("Задайте размер массива: ");
-//int userSize = Convert.ToInt32(Console.ReadLine());
-int[] userArray = FillArray(5);
-PrintArray(arr);
-ResultNumber(arr);
+System.Console.Write("Задайте размер массива: ");
+int userSize = Convert.ToInt32(Console.ReadLine());
+int[] userArray = FillArray(userSize);
+PrintArray(userArray);
+ResultNumber(userArray);
