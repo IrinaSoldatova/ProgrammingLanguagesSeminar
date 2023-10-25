@@ -8,7 +8,13 @@
 Console.Clear();
 void IntersectionPoint(double k1, double b1, double k2, double b2)
 {
-    double x =  (b1 - b2) /  (k1 - k2) * (-1);
+    if (k1 == k2)
+    {
+        if (b1 == b2) System.Console.WriteLine("Прямые совпадают");
+        else System.Console.WriteLine("Прямые параллельны");
+        return;
+    }
+    double x = (b1 - b2) / (k1 - k2) * (-1);
     double y = (k2 * (x)) + b2;
     System.Console.WriteLine($"Точка пересечения = ({x}; {y})");
 }
