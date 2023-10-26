@@ -9,6 +9,7 @@
 // каждого столбца: 4,6; 5,6; 3,6; 3.
 
 Console.Clear();
+
 void FillArray(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
@@ -20,7 +21,7 @@ void FillArray(int[,] arr)
     }
 }
 
-void PrintArray(int[,] array)
+void Print2DArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -32,7 +33,7 @@ void PrintArray(int[,] array)
     }
 }
 
-double[] Summa(int[,] arr)
+double[] Average(int[,] arr)
 {
     int rows = arr.GetLength(0);
     int columns = arr.GetLength(1);
@@ -42,16 +43,24 @@ double[] Summa(int[,] arr)
         double sum = 0;
         for (int i = 0; i < rows; i++)
         {
-            sum += arr[i, j];
+            sum = sum + arr[i, j];
         }
-        result[j] = sum / rows;
+        result[j] = Math.Round((sum / rows),1);
     }
     return result;
-
+}
+void PrintArray(double[] array)
+{
+        for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}\t");
+    }
+    Console.WriteLine();
 }
 
 int[,] array2D = new int[3, 4];
 FillArray(array2D);
-PrintArray(array2D);
+Print2DArray(array2D);
 System.Console.WriteLine();
-System.Console.WriteLine(Summa(array2D));
+double[] averageArray = Average(array2D);
+PrintArray(averageArray);
