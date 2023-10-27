@@ -80,17 +80,17 @@ void PrintArray(int[,] array)
     }
 }
 
-bool Number(int[,] arr, int num)
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            if (num == arr[i, j]) return true;
-        }
-    }
-    return false;
 
+void FindPosition(int[,] array, int x, int y)
+{
+   if(x < array.GetLength(0) && y < array.GetLength(1))
+   {
+    System.Console.WriteLine($"Такое число есть {array[x, y]}");
+   }
+   else
+   {
+   System.Console.WriteLine("Такого числа нету");
+   }
 }
 
 System.Console.Write("Введите кол-во строк в массиве n = ");
@@ -99,9 +99,9 @@ System.Console.Write("Введите кол-во столбцов в масси�
 int userColumns = Convert.ToInt32(Console.ReadLine());
 System.Console.Write("Введите число на которое будет увеливаться каждый элемент массива k = ");
 int userNum = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Введите число которое будем искать в массиве: ");
-int num = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Введите позицию которое будем искать в массиве: ");
+int indexX = Convert.ToInt32(Console.ReadLine());
+int indexY = Convert.ToInt32(Console.ReadLine());
 int[,] user2DArray = FillArray(userRows, userColumns, userNum);
 PrintArray(user2DArray);
-bool result = Number(user2DArray, num);
-System.Console.WriteLine((result) ? $"{num} -> такое число в массиве есть" : $"{num} -> такого числа в массиве нет");
+FindPosition(user2DArray, indexX, indexY);
