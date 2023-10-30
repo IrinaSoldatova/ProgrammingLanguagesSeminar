@@ -7,51 +7,53 @@
 // 5 9 2 3
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
-// Console.Clear();
-// void FillArray(int[,] arr)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < arr.GetLength(1); j++)
-//         {
-//             arr[i, j] = new Random().Next(0, 10);
-//         }
-//     }
-// }
+Console.Clear();
+void FillArray(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            arr[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
 
-// void PrintArray(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             System.Console.Write($"{array[i, j]} ");
-//         }
-//         System.Console.WriteLine();
-//     }
-// }
-// bool Number(int[,] arr, int num)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < arr.GetLength(1); j++)
-//         {
-//             if (num == arr[i, j]) return true;
-//         }
-//     }
-//     return false;
-// }
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write($"{array[i, j]} ");
+        }
+        System.Console.WriteLine();
+    }
+}
+bool Number(int[,] arr, int x, int y)
+{
+    if(x < arr.GetLength(0) && y < arr.GetLength(1))
+   {
+    return true;
+   }
+   else
+   {
+    return false;
+   }
+}
 
-// int[,] array2D = new int[3, 4];
-// FillArray(array2D);
-// PrintArray(array2D);
-// System.Console.WriteLine("Введите число: ");
-// int userNum = Convert.ToInt32(Console.ReadLine());
+int[,] array2D = new int[3, 4];
+FillArray(array2D);
+PrintArray(array2D);
 
-// bool result = Number(array2D, userNum);
-// System.Console.WriteLine((result) ? $"{userNum} -> такое число в массиве есть" : $"{userNum} -> такого числа в массиве нет");
+System.Console.WriteLine("Введите позицию которое будем искать в массиве: ");
+int indexX = Convert.ToInt32(Console.ReadLine());
+int indexY = Convert.ToInt32(Console.ReadLine());
+bool result = Number(array2D, indexX, indexY);
+System.Console.WriteLine((result) ? $"Такое число есть {array2D[indexX, indexY]}" : $"такого числа в массиве нет");
 
 
+/*
 Console.Clear();
 int[,] FillArray(int n, int m, int k)
 {
@@ -105,3 +107,4 @@ int indexY = Convert.ToInt32(Console.ReadLine());
 int[,] user2DArray = FillArray(userRows, userColumns, userNum);
 PrintArray(user2DArray);
 FindPosition(user2DArray, indexX, indexY);
+*/
