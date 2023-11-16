@@ -10,11 +10,11 @@ int numberN = Convert.ToInt32(Console.ReadLine());
 
 void IntN(int numM, int numN)
 {
-    if(numM > numN) return;
+    if (numM > numN) return;
     else
     {
-    System.Console.Write(numM + " ");
-    IntN(numM + 1, numN);
+        System.Console.Write(numM + " ");
+        IntN(numM + 1, numN);
     }
 }
 
