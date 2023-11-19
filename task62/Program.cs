@@ -4,7 +4,7 @@
 
 void FillArraySpiral(int[,] arr, int len)
 {
-    int value = 1;
+    int number = 1;
     int startX = 0; 
     int startY = 0;
     int endX = len - 1; 
@@ -14,29 +14,29 @@ void FillArraySpiral(int[,] arr, int len)
     {
         for (int i = startX; i <= endX; i++)
         {
-            arr[startY, i] = value;
-            value++;
+            arr[startY, i] = number;
+            number++;
         }
         startY++;
 
         for (int i = startY; i <= endY; i++)
         {
-            arr[i, endX] = value;
-            value++;
+            arr[i, endX] = number;
+            number++;
         }
         endX--;
 
         for (int i = endX; i >= startX; i--)
         {
-            arr[endY, i] = value;
-            value++;
+            arr[endY, i] = number;
+            number++;
         }
         endY--;
 
         for (int i = endY; i >= startY; i--)
         {
-            arr[i, startX] = value;
-            value++;
+            arr[i, startX] = number;
+            number++;
         }
         startX++;
     }
