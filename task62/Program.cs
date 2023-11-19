@@ -2,16 +2,16 @@
 
  Console.Clear();
 
-void FillArraySpiral(int[,] arr)
+void FillArraySpiral(int[,] arr, int len)
 {
-    int value = 1; // Начальное значение для заполнения массива
-    int startX = 0, startY = 0; // Начальные координаты для заполнения
-    int endX = 3, endY = 3; // Конечные координаты для заполнения
+    int value = 1;
+    int startX = 0; 
+    int startY = 0;
+    int endX = len - 1; 
+    int endY = len - 1;
 
-    // Заполняем массив по спирали
     while (startX <= endX && startY <= endY)
     {
-        // Заполнение верхней строки
         for (int i = startX; i <= endX; i++)
         {
             arr[startY, i] = value;
@@ -19,7 +19,6 @@ void FillArraySpiral(int[,] arr)
         }
         startY++;
 
-        // Заполнение правого столбца
         for (int i = startY; i <= endY; i++)
         {
             arr[i, endX] = value;
@@ -27,7 +26,6 @@ void FillArraySpiral(int[,] arr)
         }
         endX--;
 
-        // Заполнение нижней строки
         for (int i = endX; i >= startX; i--)
         {
             arr[endY, i] = value;
@@ -35,7 +33,6 @@ void FillArraySpiral(int[,] arr)
         }
         endY--;
 
-        // Заполнение левого столбца
         for (int i = endY; i >= startY; i--)
         {
             arr[i, startX] = value;
@@ -45,11 +42,11 @@ void FillArraySpiral(int[,] arr)
     }
 }
 
-void PrintArray(int[,] arr)
+void PrintArray(int[,] arr, int len)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < len; i++)
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < len; j++)
         {
             if (arr[i, j] < 10)
             {
@@ -61,7 +58,7 @@ void PrintArray(int[,] arr)
         Console.WriteLine();
     }
 }
-
-int[,] array = new int[4, 4];
-FillArraySpiral(array);
-PrintArray(array);
+int len = 4;
+int[,] array = new int[len, len];
+FillArraySpiral(array, len);
+PrintArray(array, len);
