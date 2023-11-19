@@ -1,43 +1,67 @@
 ﻿// Задача 62: Заполните спирально массив 4 на 4.
 
-Console.Clear();
+ Console.Clear();
 
-//  Функция заполнения массива по спирали начиная с 1
-void FillArraySpiral(int[,] array, int n)
+void FillArraySpiral(int[,] arr)
 {
-    int i = 0, j = 0;
-    int value = 1;
-    for (int e = 0; e < n * n; e++)
+    int value = 1; // Начальное значение для заполнения массива
+    int startX = 0, startY = 0; // Начальные координаты для заполнения
+    int endX = 3, endY = 3; // Конечные координаты для заполнения
+
+    // Заполняем массив по спирали
+    while (startX <= endX && startY <= endY)
     {
-        int k = 0;
-        do { array[i, j++] = value++; } while (++k < n - 1);
-        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
-        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
-        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
-        ++i; ++j;
-        n = n < 2 ? 0 : n - 2;
+        // Заполнение верхней строки
+        for (int i = startX; i <= endX; i++)
+        {
+            arr[startY, i] = value;
+            value++;
+        }
+        startY++;
+
+        // Заполнение правого столбца
+        for (int i = startY; i <= endY; i++)
+        {
+            arr[i, endX] = value;
+            value++;
+        }
+        endX--;
+
+        // Заполнение нижней строки
+        for (int i = endX; i >= startX; i--)
+        {
+            arr[endY, i] = value;
+            value++;
+        }
+        endY--;
+
+        // Заполнение левого столбца
+        for (int i = endY; i >= startY; i--)
+        {
+            arr[i, startX] = value;
+            value++;
+        }
+        startX++;
     }
 }
 
-//  Функция вывода двумерного массива в терминал
-void PrintArray(int[,] array)
+void PrintArray(int[,] arr)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < 4; i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < 4; j++)
         {
-            if (array[i, j] < 10)
+            if (arr[i, j] < 10)
             {
-                Console.Write("0" + array[i, j]);
-                Console.Write(" ");
+                Console.Write("0" + arr[i, j]);
+                System.Console.Write(" ");
             }
-            else Console.Write(array[i, j] + " ");
+            else Console.Write(arr[i, j] + " ");
         }
         Console.WriteLine();
     }
 }
 
-int len = 4;
-int[,] table = new int[len, len];
-FillArraySpiral(table, len);
-PrintArray(table);
+int[,] array = new int[4, 4];
+FillArraySpiral(array);
+PrintArray(array);
