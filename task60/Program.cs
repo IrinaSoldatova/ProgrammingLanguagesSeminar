@@ -3,25 +3,7 @@
 // массив, добавляя индексы каждого элемента.
 Console.Clear();
 
-void Fill3DArray(int[,,] arr)
-{
-    //int count = 10;
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            for (int k = 0; k < arr.GetLength(2); k++)
-            {
-                //arr[i, j, k] = arr[i, j, k] + count;
-                //count++;
-                arr[i, j, k] = new Random().Next(10, 100);
-            }
-        }
-    }
-}
-
-
-void ReplaceDuplicateElements(int[,,] array)
+void Fill3DArray(int[,,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -29,15 +11,14 @@ void ReplaceDuplicateElements(int[,,] array)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                int element = array[i, j, k];
-                int newElement = new Random().Next(10, 100);
+                int element = new Random().Next(10, 100);
 
-                while (ArrayContainsElement(array, newElement))
+                while (ArrayContainsElement(array, element))
                 {
-                    newElement = new Random().Next(10, 100);
+                    element = new Random().Next(10, 100);
                 }
 
-                array[i, j, k] = newElement;
+                array[i, j, k] = element;
             }
         }
     }
@@ -78,9 +59,8 @@ void Print3DArray(int[,,] array)
 
 }
 
-int[,,] array3D = new int[4, 4, 4];
+int[,,] array3D = new int[3, 3, 3];
 Fill3DArray(array3D);
-ReplaceDuplicateElements(array3D);
 Print3DArray(array3D);
 
 
@@ -98,7 +78,7 @@ Print3DArray(array3D);
 
 
 
-
+//частотный словарь для удобства проверки повторяющихся элементов
 // void FrequencyDictionary(int[,,] array)
 // {
 //     for (int number = 10; number < 100; number++)
